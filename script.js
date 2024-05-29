@@ -5,6 +5,7 @@ const controls = document.querySelector(".controls-container");
 const result = document.getElementById("result");
 const submitBtn = document.getElementById("submit-btn");
 const errorMessage = document.getElementById("error-msg");
+const welcomeMessage = document.getElementById("welcome");
 let answerValue;
 let operatorQuestion;
 
@@ -64,17 +65,21 @@ const questionGenerator = () => {
     }
   });
 };
-//Commencement du jeu 
+// Commencement du jeu
 startBtn.addEventListener("click", () => {
-  operatorQuestion = false;
-  answerValue = "";
-  errorMessage.innerHTML = "";
-  errorMessage.classList.add("hide");
-  //Visibilité des contrôles et des boutons
-  controls.classList.add("hide");
-  startBtn.classList.add("hide");
-  questionGenerator();
-});
+    // Cacher l'élément #welcome
+    welcomeMessage.style.display = "none";
+  
+    operatorQuestion = false;
+    answerValue = "";
+    errorMessage.innerHTML = "";
+    errorMessage.classList.add("hide");
+    // Visibilité des contrôles et des boutons
+    controls.classList.add("hide");
+    startBtn.classList.add("hide");
+    questionGenerator();
+  });
+  
 //arrêt du jeu 
 const stopGame = (resultText) => {
   result.innerHTML = resultText;
