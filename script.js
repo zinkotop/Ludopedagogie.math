@@ -38,8 +38,9 @@ const questionGenerator = () => {
     answerValue = solution;
     question.innerHTML = `${num1} ${randomOperator} ${num2} = <input type="number" id="inputValue" placeholder="?"\>`;
   }
-  //Vérification 
-  submitBtn.addEventListener("click", () => {
+
+ //Vérification 
+ submitBtn.addEventListener("click", () => {
     errorMessage.classList.add("hide");
     let userInput = document.getElementById("inputValue").value;
 
@@ -51,7 +52,7 @@ const questionGenerator = () => {
       //Si l'utilisateur saisit un opérateur autre que +, -, *
       else if (operatorQuestion && !operators.includes(userInput)) {
         errorMessage.classList.remove("hide");
-        errorMessage.innerHTML = "Veuillez entrer un opérateur valide.";
+        errorMessage.innerHTML = "Veuillez entrer un opérateur valide (+, -, *).";
       }
       //Si réponse fausse
       else {
@@ -61,10 +62,12 @@ const questionGenerator = () => {
     //Si vide
     else {
       errorMessage.classList.remove("hide");
-      errorMessage.innerHTML = "La saisie ne peut pas être vide";
+      errorMessage.innerHTML = "Veuillez saisir des valeurs numériques.";
     }
   });
 };
+
+
 // Commencement du jeu
 startBtn.addEventListener("click", () => {
     // Cacher l'élément #welcome
